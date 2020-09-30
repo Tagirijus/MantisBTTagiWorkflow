@@ -27,6 +27,16 @@ if (gpc_isset('redirect_report_bug')) {
 
 
 
+// redirect update bug
+
+if (gpc_isset('redirect_update_bug')) {
+	plugin_config_set( 'redirect_update_bug', 1 );
+} else {
+	plugin_config_set( 'redirect_update_bug', 0 );
+}
+
+
+
 
 
 
