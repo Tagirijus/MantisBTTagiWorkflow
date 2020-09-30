@@ -39,6 +39,18 @@ if (gpc_isset('redirect_update_bug')) {
 
 
 
+// auto status
+
+if (gpc_isset('auto_status')) {
+	plugin_config_set( 'auto_status', 1 );
+} else {
+	plugin_config_set( 'auto_status', 0 );
+}
+
+
+
+
+
 
 form_security_purge( 'plugin_MantisBTTagiWorkflow_config_edit' );
 

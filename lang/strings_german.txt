@@ -10,3 +10,4 @@ $s_plugin_MantisBTTagiWorkflow_menu_projects_title = 'Projekte';
 $s_plugin_MantisBTTagiWorkflow_config_redirect_report_bug = 'Nach Report zur Tabelle umleiten';
 $s_plugin_MantisBTTagiWorkflow_config_enable = 'aktivieren';
 $s_plugin_MantisBTTagiWorkflow_config_redirect_update_bug = 'Nach Bug Update zur Tabelle umleiten';
+$s_plugin_MantisBTTagiWorkflow_config_auto_status = 'Nach Report Status automatisch auf "zu erledigen" setzen, falls jmd. zugewiesen wurde';

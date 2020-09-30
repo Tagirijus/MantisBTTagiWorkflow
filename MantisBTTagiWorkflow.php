@@ -23,6 +23,7 @@ class MantisBTTagiWorkflowPlugin extends MantisPlugin {
       'menu_projects' => 1,
       'redirect_report_bug' => 1,
       'redirect_update_bug' => 1,
+      'auto_status' => 1,
     );
   }
 
@@ -30,7 +31,7 @@ class MantisBTTagiWorkflowPlugin extends MantisPlugin {
     $hooks = parent::hooks();
 
     $hooks['EVENT_MENU_MAIN'] = 'modify_menu';
-    $hooks['EVENT_REPORT_BUG'] = 'redirect_report_bug';
+    $hooks['EVENT_REPORT_BUG'] = 'report_bug_link';
     $hooks['EVENT_UPDATE_BUG'] = 'redirect_update_bug';
 
     return $hooks;
@@ -46,8 +47,19 @@ class MantisBTTagiWorkflowPlugin extends MantisPlugin {
     }
   }
 
-  function redirect_report_bug($p_event)
+  function report_bug_link($p_event, $p_bugdata, $p_bug_id)
   {
+    // auto assign status, if handler was assigned?
+    if ( plugin_config_get( 'auto_status' ) ) {
+      $handler = bug_get_field( $p_bug_id, 'handler_id' );
+      if ($handler != 0) {
+        bug_set_field( $p_bug_id, 'status', 10 );
+      }
+    }
+
+    // redirect to table, if option is enabled
+    // IMPORTANT: this lines have to be at th end of this function!
+    // otherwise the other lines would be skipped!
     if ( plugin_config_get( 'redirect_report_bug' ) ) {
       print_successful_redirect('view_all_bug_page.php');
     }

@@ -10,3 +10,4 @@ $s_plugin_MantisBTTagiWorkflow_menu_projects_title = 'Projects';
 $s_plugin_MantisBTTagiWorkflow_config_redirect_report_bug = 'Redirect to table after report';
 $s_plugin_MantisBTTagiWorkflow_config_enable = 'activate';
 $s_plugin_MantisBTTagiWorkflow_config_redirect_update_bug = 'Redirect to table after bug update';
+$s_plugin_MantisBTTagiWorkflow_config_auto_status = 'Set status to "to do",if a handler was assigned on report';
