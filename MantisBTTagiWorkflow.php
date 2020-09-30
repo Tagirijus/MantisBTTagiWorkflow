@@ -1,10 +1,12 @@
 <?php
 
+
 class MantisBTTagiWorkflowPlugin extends MantisPlugin {
 
   function register() {
     $this->name        = 'MantisBT Tagi Workflow';
     $this->description = 'Some tweaks for MantisBT to fit my workflow without modifying core files.';
+    $this->page = 'config';
 
     $this->version     = '1.0';
     $this->requires    = array(
@@ -13,17 +15,31 @@ class MantisBTTagiWorkflowPlugin extends MantisPlugin {
 
     $this->author      = 'Manuel Senfft';
     $this->contact     = 'info@tagirijus.de';
-    $this->url         = 'http://www.tagirijus.de';
+    $this->url         = 'https://www.tagirijus.de';
   }
 
-  function hooks() {
+  function config( ) {
     return array(
-        'EVENT_LAYOUT_RESOURCES' => 'add_css'
+      'menu_projects' => 1,
     );
   }
 
-  function add_css($p_event) {
-      echo '<link rel="stylesheet" type="text/css" href="' . plugin_file('DarkTheme.css') . '" />' . "\n";
+  function hooks() {
+    $hooks = parent::hooks();
+
+    $hooks['EVENT_MENU_MAIN'] = 'modify_menu';
+
+    return $hooks;
+  }
+
+  function modify_menu($p_event, $p_menu) {
+    if ( plugin_config_get( 'menu_projects' ) ) {
+      return [[
+        'url' => 'manage_proj_page.php?sort=enabled&dir=DESC',
+        'title' => 'Projekte',
+        'icon' => 'fa-gear'
+      ]];
+    }
   }
 
 }

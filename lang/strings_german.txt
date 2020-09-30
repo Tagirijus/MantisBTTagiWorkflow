@@ -1,0 +1,9 @@
+<?php
+
+$s_plugin_mantisbttagiworkflow_title = 'Mantis Tagi Workflow';
+$s_plugin_mantisbttagiworkflow_description = 'Einstellen, was vom Plugin aktiviert sein soll.';
+
+$s_plugin_MantisBTTagiWorkflow_title = 'Mantis Tagi Workflow';
+$s_plugin_MantisBTTagiWorkflow_config = 'Konfiguration';
+$s_plugin_MantisBTTagiWorkflow_config_menu_modify = 'Seitenmenü ändern';
+$s_plugin_MantisBTTagiWorkflow_menu_projects_title = 'Projekte';
