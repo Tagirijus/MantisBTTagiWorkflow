@@ -11,3 +11,6 @@ $s_plugin_MantisBTTagiWorkflow_config_redirect_report_bug = 'Redirect to table a
 $s_plugin_MantisBTTagiWorkflow_config_enable = 'activate';
 $s_plugin_MantisBTTagiWorkflow_config_redirect_update_bug = 'Redirect to table after bug update';
 $s_plugin_MantisBTTagiWorkflow_config_auto_status = 'Set status to "to do",if a handler was assigned on report';
+$s_plugin_MantisBTTagiWorkflow_config_summary_linked = 'Enable the column "Summary with link", which is a link to the issue with the summary as the caption';
+$s_plugin_MantisBTTagiWorkflow_config_summary_linked_title = 'Summary (link)';
+$s_plugin_MantisBTTagiWorkflow_config_summary_linked_style = 'Summary (link) CSS style';

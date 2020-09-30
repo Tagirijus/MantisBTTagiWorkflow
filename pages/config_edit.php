@@ -50,6 +50,24 @@ if (gpc_isset('auto_status')) {
 
 
 
+// summary linked
+
+if (gpc_isset('summary_linked')) {
+	plugin_config_set( 'summary_linked', 1 );
+} else {
+	plugin_config_set( 'summary_linked', 0 );
+}
+
+
+// summary linked style
+
+if (gpc_isset('summary_linked_style')) {
+	plugin_config_set( 'summary_linked_style', gpc_get_string('summary_linked_style') );
+}
+
+
+
+
 
 
 form_security_purge( 'plugin_MantisBTTagiWorkflow_config_edit' );
