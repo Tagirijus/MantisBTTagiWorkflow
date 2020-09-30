@@ -36,7 +36,7 @@ class MantisBTTagiWorkflowPlugin extends MantisPlugin {
     if ( plugin_config_get( 'menu_projects' ) ) {
       return [[
         'url' => 'manage_proj_page.php?sort=enabled&dir=DESC',
-        'title' => 'Projekte',
+        'title' => plugin_lang_get('menu_projects_title'),
         'icon' => 'fa-gear'
       ]];
     }
