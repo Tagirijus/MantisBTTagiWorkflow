@@ -55,6 +55,25 @@ print_manage_menu( 'manage_plugin_page.php' );
 </tr>
 
 
+<!-- redirect report bug -->
+<tr>
+	<th class="category">
+		<?php echo plugin_lang_get( 'config_redirect_report_bug' )?>
+	</th>
+	<td class="center exclude_special_fields">
+		<div style="width:98%;margin:0 auto;text-align:left;float:none">
+			<label><input type="checkbox" name="redirect_report_bug"
+				<?php if( plugin_config_get( 'redirect_report_bug' ) ) {
+					echo 'checked="checked"';
+				}
+				?>
+				style="margin-bottom:2.1ex;float:left"
+				value="1">&nbsp;<?php echo plugin_lang_get( 'config_enable' ) ?></label>
+		</div>
+	</td>
+</tr>
+
+
 
 
 </table>

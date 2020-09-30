@@ -7,3 +7,5 @@ $s_plugin_MantisBTTagiWorkflow_title = 'Mantis Tagi Workflow';
 $s_plugin_MantisBTTagiWorkflow_config = 'Konfiguration';
 $s_plugin_MantisBTTagiWorkflow_config_menu_modify = 'Seitenmenü ändern';
 $s_plugin_MantisBTTagiWorkflow_menu_projects_title = 'Projekte';
+$s_plugin_MantisBTTagiWorkflow_config_redirect_report_bug = 'Nach Report zur Tabelle umleiten';
+$s_plugin_MantisBTTagiWorkflow_config_enable = 'aktivieren';

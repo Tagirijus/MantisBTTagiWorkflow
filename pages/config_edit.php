@@ -17,6 +17,16 @@ if (gpc_isset('menu_projects')) {
 
 
 
+// redirect report bug
+
+if (gpc_isset('redirect_report_bug')) {
+	plugin_config_set( 'redirect_report_bug', 1 );
+} else {
+	plugin_config_set( 'redirect_report_bug', 0 );
+}
+
+
+
 
 
 

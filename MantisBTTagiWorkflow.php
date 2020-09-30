@@ -21,6 +21,7 @@ class MantisBTTagiWorkflowPlugin extends MantisPlugin {
   function config( ) {
     return array(
       'menu_projects' => 1,
+      'redirect_report_bug' => 1,
     );
   }
 
@@ -28,6 +29,7 @@ class MantisBTTagiWorkflowPlugin extends MantisPlugin {
     $hooks = parent::hooks();
 
     $hooks['EVENT_MENU_MAIN'] = 'modify_menu';
+    $hooks['EVENT_REPORT_BUG'] = 'redirect_report_bug';
 
     return $hooks;
   }
@@ -39,6 +41,13 @@ class MantisBTTagiWorkflowPlugin extends MantisPlugin {
         'title' => plugin_lang_get('menu_projects_title'),
         'icon' => 'fa-gear'
       ]];
+    }
+  }
+
+  function redirect_report_bug($p_event)
+  {
+    if ( plugin_config_get( 'redirect_report_bug' ) ) {
+      print_successful_redirect('view_all_bug_page.php');
     }
   }
 
