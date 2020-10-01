@@ -23,6 +23,11 @@ class TagiColumnSummaryLinked extends MantisColumn
     public $sortable = true;
 
     /**
+     * Link to but notes as well immediately with this columns link.
+     */
+    public $tobugnotes = true;
+
+    /**
      * The CSS for the hyperlink.
      */
     public $style = '';
@@ -42,6 +47,9 @@ class TagiColumnSummaryLinked extends MantisColumn
 
         // get CSS for column
         $this->style = plugin_config_get('summary_linked_style');
+
+        // get to bug notes option
+        $this->tobugnotes = plugin_config_get('summary_linked_tobugnotes');
     }
 
     /**
@@ -83,8 +91,14 @@ class TagiColumnSummaryLinked extends MantisColumn
     public function display( BugData $p_bug, $p_columns_target ) {
         $id = $p_bug->id;
         $summary = $p_bug->summary;
-        $code = '<a href="view.php?id=%d" style="%s">%s</a>';
-        echo sprintf($code, $id, $this->style, $summary);
+
+        if ($this->tobugnotes) {
+            $bugnotes = '#bugnotes';
+        } else {
+            $bugnotes = '';
+        }
+        $code = '<a href="view.php?id=%d%s" style="%s">%s</a>';
+        echo sprintf($code, $id, $bugnotes, $this->style, $summary);
     }
 
     /**

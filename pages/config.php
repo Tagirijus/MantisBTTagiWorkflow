@@ -136,6 +136,24 @@ print_manage_menu( 'manage_plugin_page.php' );
 	</td>
 </tr>
 
+<!-- summary linked to bug notes -->
+<tr>
+	<th class="category">
+		<?php echo plugin_lang_get( 'config_summary_linked_tobugnotes' )?>
+	</th>
+	<td class="center exclude_special_fields">
+		<div style="width:98%;margin:0 auto;text-align:left;float:none">
+			<label><input type="checkbox" name="summary_linked_tobugnotes"
+				<?php if( plugin_config_get( 'summary_linked_tobugnotes' ) ) {
+					echo 'checked="checked"';
+				}
+				?>
+				style="margin-bottom:2.1ex;float:left"
+				value="1">&nbsp;<?php echo plugin_lang_get( 'config_enable' ) ?></label>
+		</div>
+	</td>
+</tr>
+
 <!-- summary linked style -->
 <tr>
 	<th class="category">

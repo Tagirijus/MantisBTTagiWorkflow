@@ -20,6 +20,7 @@ $s_plugin_MantisBTTagiWorkflow_config_auto_status = 'Set status to "to do",if a 
 
 
 $s_plugin_MantisBTTagiWorkflow_config_summary_linked = 'Enable the column "Summary with link", which is a link to the issue with the summary as the caption';
+$s_plugin_MantisBTTagiWorkflow_config_summary_linked_tobugnotes = 'Enable also te linking directly to bug notes with this link.';
 $s_plugin_MantisBTTagiWorkflow_summary_linked_title = 'Summary (link)';
 $s_plugin_MantisBTTagiWorkflow_config_summary_linked_style = 'Summary (link) CSS style';
 $s_plugin_MantisBTTagiWorkflow_config_summary_linked_title_entry = 'Caption for column "Summary with link". Leave empty to use the default from the strings file';

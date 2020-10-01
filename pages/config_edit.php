@@ -59,6 +59,15 @@ if (gpc_isset('summary_linked')) {
 }
 
 
+// summary linked to bugnotes
+
+if (gpc_isset('summary_linked_tobugnotes')) {
+	plugin_config_set( 'summary_linked_tobugnotes', 1 );
+} else {
+	plugin_config_set( 'summary_linked_tobugnotes', 0 );
+}
+
+
 // summary linked style
 
 if (gpc_isset('summary_linked_style')) {
