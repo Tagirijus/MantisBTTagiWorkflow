@@ -73,10 +73,12 @@ class MantisBTTagiWorkflowPlugin extends MantisPlugin {
     }
 
     // redirect to table, if option is enabled
-    // IMPORTANT: this lines have to be at th end of this function!
+    // IMPORTANT: this lines have to be at the end of this function!
     // otherwise the other lines would be skipped!
     if ( plugin_config_get( 'redirect_report_bug' ) ) {
-      print_successful_redirect('view_all_bug_page.php');
+      if (!gpc_get_bool('report_stay')) {
+        print_successful_redirect('view_all_bug_page.php');
+      }
     }
   }
 
