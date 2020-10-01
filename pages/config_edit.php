@@ -68,6 +68,24 @@ if (gpc_isset('summary_linked_style')) {
 
 
 
+// category tagi
+
+if (gpc_isset('category_tagi')) {
+	plugin_config_set( 'category_tagi', 1 );
+} else {
+	plugin_config_set( 'category_tagi', 0 );
+}
+
+
+// category tagi style
+
+if (gpc_isset('category_tagi_style')) {
+	plugin_config_set( 'category_tagi_style', gpc_get_string('category_tagi_style') );
+}
+
+
+
+
 
 
 form_security_purge( 'plugin_MantisBTTagiWorkflow_config_edit' );

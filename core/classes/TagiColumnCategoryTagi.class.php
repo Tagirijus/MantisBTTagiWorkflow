@@ -3,18 +3,23 @@
 /**
  * Mantis Bug Tracker Column
  */
-class TagiColumnSummaryLinked extends MantisColumn
+class TagiColumnCategoryTagi extends MantisColumn
 {
 
     /**
      * Column title, as displayed to the user.
      */
-    public $title = 'Summary (link)';
+    public $title = 'Category (tagi)';
 
     /**
      * Column name, as selected in the manage columns interfaces.
      */
-    public $column = 'summary_linked';
+    public $column = 'category_tagi';
+
+    /**
+     * Link for "all projects" title.
+     */
+    public $all = 'all';
 
     /**
      * Column is sortable by the user.  Setting this to true implies that
@@ -32,8 +37,9 @@ class TagiColumnSummaryLinked extends MantisColumn
      * Constructor of the class.
      */
     public function __construct() {
-        $this->title = plugin_lang_get('summary_linked_title');
-        $this->style = plugin_config_get('summary_linked_style');
+        $this->title = plugin_lang_get('category_tagi_title');
+        $this->style = plugin_config_get('category_tagi_style');
+        $this->all = plugin_lang_get('category_tagi_all');
     }
 
     /**
@@ -44,7 +50,7 @@ class TagiColumnSummaryLinked extends MantisColumn
      */
     public function sortquery( $p_direction ) {
         return [
-            'order' => "summary $p_direction"
+            'order' => "category_id $p_direction"
         ];
     }
 
@@ -73,10 +79,21 @@ class TagiColumnSummaryLinked extends MantisColumn
      * @return void
      */
     public function display( BugData $p_bug, $p_columns_target ) {
-        $id = $p_bug->id;
-        $summary = $p_bug->summary;
-        $code = '<a href="view.php?id=%d" style="%s">%s</a>';
-        echo sprintf($code, $id, $this->style, $summary);
+        $project_id = $p_bug->project_id;
+        $project = project_get_name($project_id);
+
+        if (helper_get_current_project() != 0) {
+            $project_id = 0;
+            $project = $this->all;
+        }
+
+        $url_base = '<a href="set_project.php?project_id=%d" style="%s">%s</a>';
+        $url = sprintf($url_base, $project_id, $this->style, $project);
+
+        $category = category_get_name($p_bug->category_id);
+
+        $code = '[%s] %s';
+        echo sprintf($code, $url, $category);
     }
 
     /**

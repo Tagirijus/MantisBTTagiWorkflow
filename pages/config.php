@@ -152,6 +152,41 @@ print_manage_menu( 'manage_plugin_page.php' );
 
 
 
+
+<!-- category tagi -->
+<tr>
+	<th class="category">
+		<?php echo plugin_lang_get( 'config_category_tagi' )?>
+	</th>
+	<td class="center exclude_special_fields">
+		<div style="width:98%;margin:0 auto;text-align:left;float:none">
+			<label><input type="checkbox" name="category_tagi"
+				<?php if( plugin_config_get( 'category_tagi' ) ) {
+					echo 'checked="checked"';
+				}
+				?>
+				style="margin-bottom:2.1ex;float:left"
+				value="1">&nbsp;<?php echo plugin_lang_get( 'config_enable' ) ?></label>
+		</div>
+	</td>
+</tr>
+
+<!-- category tagi style -->
+<tr>
+	<th class="category">
+		<?php echo plugin_lang_get( 'config_category_tagi_style' )?>
+	</th>
+	<td class="center exclude_special_fields">
+		<div style="width:98%;margin:0 auto;text-align:left;float:none">
+			<input type="text" name="category_tagi_style"
+				style="margin-bottom:2.1ex;float:left"
+				value="<?php echo plugin_config_get( 'category_tagi_style' ) ?>">
+		</div>
+	</td>
+</tr>
+
+
+
 </table>
 </div>
 </div>

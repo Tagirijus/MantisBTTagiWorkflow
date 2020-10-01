@@ -20,6 +20,7 @@ class MantisBTTagiWorkflowPlugin extends MantisPlugin {
 
   function init() {
     require_once 'core/classes/TagiColumnSummaryLinked.class.php';
+    require_once 'core/classes/TagiColumnCategoryTagi.class.php';
   }
 
   function config( ) {
@@ -30,6 +31,8 @@ class MantisBTTagiWorkflowPlugin extends MantisPlugin {
       'auto_status' => 1,
       'summary_linked' => 1,
       'summary_linked_style' => 'color:#babaff !important;font-weight:bold',
+      'category_tagi' => 1,
+      'category_tagi_style' => 'font-size:.8em;margin:0 3px',
     );
   }
 
@@ -83,8 +86,15 @@ class MantisBTTagiWorkflowPlugin extends MantisPlugin {
   function add_columns($p_event)
   {
     $out = [];
+
+    // summary linked
     if ( plugin_config_get( 'summary_linked' ) ) {
       $out[] = new TagiColumnSummaryLinked();
+    }
+
+    // category tagi
+    if ( plugin_config_get( 'category_tagi' ) ) {
+      $out[] = new TagiColumnCategoryTagi();
     }
 
     return $out;
@@ -92,7 +102,10 @@ class MantisBTTagiWorkflowPlugin extends MantisPlugin {
 
   function add_columns_css($p_event)
   {
-    if ( plugin_config_get( 'summary_linked' ) ) {
+    if (
+      plugin_config_get( 'summary_linked' ) or
+      plugin_config_get( 'category_tagi' )
+    ) {
       echo '<style>td.column-plugin{text-align:left !important}</style>';
     }
   }
