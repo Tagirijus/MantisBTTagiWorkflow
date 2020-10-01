@@ -231,6 +231,26 @@ print_manage_menu( 'manage_plugin_page.php' );
 	</td>
 </tr>
 
+<!-- category tagi colorize -->
+<tr>
+	<th class="category">
+		<?php echo plugin_lang_get( 'config_category_tagi_stylize' )?>
+	</th>
+	<td class="center exclude_special_fields">
+		<div style="width:98%;margin:0 auto;text-align:left;float:none">
+			<label><input type="checkbox" name="category_tagi_stylize"
+				<?php if( plugin_config_get( 'category_tagi_stylize' ) ) {
+					echo 'checked="checked"';
+				}
+				?>
+				style="margin-bottom:2.1ex;float:left"
+				value="1">&nbsp;<?php echo plugin_lang_get( 'config_enable' ) ?></label>
+		</div>
+	</td>
+</tr>
+
+
+
 
 
 </table>

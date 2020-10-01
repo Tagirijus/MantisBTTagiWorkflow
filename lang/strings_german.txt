@@ -31,3 +31,4 @@ $s_plugin_MantisBTTagiWorkflow_category_tagi_title = 'Kategorie (tagi)';
 $s_plugin_MantisBTTagiWorkflow_config_category_tagi_style = 'Kategorie (tagi) CSS Style für Link';
 $s_plugin_MantisBTTagiWorkflow_category_tagi_all = 'Alle';
 $s_plugin_MantisBTTagiWorkflow_category_tagi_title_entry = 'Bezeichnung für Spalte "Kategorie (tagi)". Leer lassen für Default aus der strings-Datei';
+$s_plugin_MantisBTTagiWorkflow_config_category_tagi_stylize = 'Färbe Kategorie-Name in "Kategorie (tagi)" Spalte mit in der config_inc.php gesetzten Variable $g_category_tagi_stylize';

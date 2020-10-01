@@ -32,6 +32,12 @@ class TagiColumnCategoryTagi extends MantisColumn
      */
     public $style = '';
 
+    /**
+     * If enabled, the category name will be stylized according
+     * to the $g_category_tagi_stylize array in the config_inc
+     */
+    public $stylize = true;
+
 
     /**
      * Constructor of the class.
@@ -50,6 +56,9 @@ class TagiColumnCategoryTagi extends MantisColumn
 
         // get link caption
         $this->all = plugin_lang_get('category_tagi_all');
+
+        // get bool for category name stylization
+        $this->stylize = plugin_config_get('category_tagi_stylize');
     }
 
     /**
@@ -101,9 +110,34 @@ class TagiColumnCategoryTagi extends MantisColumn
         $url = sprintf($url_base, $project_id, $this->style, $project);
 
         $category = category_get_name($p_bug->category_id);
+        $category = $this->stylize_category($category);
 
         $code = '[%s] %s';
         echo sprintf($code, $url, $category);
+    }
+
+    /**
+     * Stylize the category name, if enabled in the config.
+     *
+     * @param string $category
+     * @return string
+     */
+    protected function stylize_category($category)
+    {
+        if ($this->stylize) {
+            if (config_is_set('category_tagi_stylize')) {
+                $styling = config_get('category_tagi_stylize');
+                if (array_key_exists($category, $styling)) {
+                    return sprintf(
+                        '<span style="%s">%s</span>',
+                        $styling[$category],
+                        $category
+                    );
+                }
+            }
+        }
+
+        return $category;
     }
 
     /**

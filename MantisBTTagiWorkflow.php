@@ -36,6 +36,7 @@ class MantisBTTagiWorkflowPlugin extends MantisPlugin {
       'category_tagi' => 1,
       'category_tagi_style' => 'font-size:.8em;margin:0 3px',
       'category_tagi_caption' => '',
+      'category_tagi_stylize' => 1,
     );
   }
 

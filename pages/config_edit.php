@@ -107,6 +107,15 @@ if (gpc_isset('category_tagi_caption')) {
 }
 
 
+// category tagi colorize
+
+if (gpc_isset('category_tagi_stylize')) {
+	plugin_config_set( 'category_tagi_stylize', 1 );
+} else {
+	plugin_config_set( 'category_tagi_stylize', 0 );
+}
+
+
 
 
 
