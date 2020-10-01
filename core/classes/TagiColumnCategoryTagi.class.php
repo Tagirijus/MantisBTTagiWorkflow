@@ -37,8 +37,18 @@ class TagiColumnCategoryTagi extends MantisColumn
      * Constructor of the class.
      */
     public function __construct() {
-        $this->title = plugin_lang_get('category_tagi_title');
+        // get caption for column
+        $caption_from_settings = plugin_config_get('category_tagi_caption');
+        if ($caption_from_settings == '') {
+            $this->title = plugin_lang_get('category_tagi_title');
+        } else {
+            $this->title = $caption_from_settings;
+        }
+
+        // get CSS for column
         $this->style = plugin_config_get('category_tagi_style');
+
+        // get link caption
         $this->all = plugin_lang_get('category_tagi_all');
     }
 

@@ -32,7 +32,15 @@ class TagiColumnSummaryLinked extends MantisColumn
      * Constructor of the class.
      */
     public function __construct() {
-        $this->title = plugin_lang_get('summary_linked_title');
+        // get caption for column
+        $caption_from_settings = plugin_config_get('summary_linked_caption');
+        if ($caption_from_settings == '') {
+            $this->title = plugin_lang_get('summary_linked_title');
+        } else {
+            $this->title = $caption_from_settings;
+        }
+
+        // get CSS for column
         $this->style = plugin_config_get('summary_linked_style');
     }
 

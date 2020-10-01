@@ -31,8 +31,10 @@ class MantisBTTagiWorkflowPlugin extends MantisPlugin {
       'auto_status' => 1,
       'summary_linked' => 1,
       'summary_linked_style' => 'color:#babaff !important;font-weight:bold',
+      'summary_linked_caption' => '',
       'category_tagi' => 1,
       'category_tagi_style' => 'font-size:.8em;margin:0 3px',
+      'category_tagi_caption' => '',
     );
   }
 

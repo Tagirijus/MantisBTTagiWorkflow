@@ -150,6 +150,20 @@ print_manage_menu( 'manage_plugin_page.php' );
 	</td>
 </tr>
 
+<!-- summary linked caption -->
+<tr>
+	<th class="category">
+		<?php echo plugin_lang_get( 'config_summary_linked_title_entry' )?>
+	</th>
+	<td class="center exclude_special_fields">
+		<div style="width:98%;margin:0 auto;text-align:left;float:none">
+			<input type="text" name="summary_linked_caption"
+				style="margin-bottom:2.1ex;float:left"
+				value="<?php echo plugin_config_get( 'summary_linked_caption' ) ?>">
+		</div>
+	</td>
+</tr>
+
 
 
 
@@ -181,6 +195,20 @@ print_manage_menu( 'manage_plugin_page.php' );
 			<input type="text" name="category_tagi_style"
 				style="margin-bottom:2.1ex;float:left"
 				value="<?php echo plugin_config_get( 'category_tagi_style' ) ?>">
+		</div>
+	</td>
+</tr>
+
+<!-- category tagi caption -->
+<tr>
+	<th class="category">
+		<?php echo plugin_lang_get( 'config_category_tagi_title_entry' )?>
+	</th>
+	<td class="center exclude_special_fields">
+		<div style="width:98%;margin:0 auto;text-align:left;float:none">
+			<input type="text" name="category_tagi_caption"
+				style="margin-bottom:2.1ex;float:left"
+				value="<?php echo plugin_config_get( 'category_tagi_caption' ) ?>">
 		</div>
 	</td>
 </tr>

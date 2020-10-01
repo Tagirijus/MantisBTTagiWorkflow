@@ -66,6 +66,13 @@ if (gpc_isset('summary_linked_style')) {
 }
 
 
+// summary linked caption
+
+if (gpc_isset('summary_linked_caption')) {
+	plugin_config_set( 'summary_linked_caption', gpc_get_string('summary_linked_caption') );
+}
+
+
 
 
 // category tagi
@@ -81,6 +88,13 @@ if (gpc_isset('category_tagi')) {
 
 if (gpc_isset('category_tagi_style')) {
 	plugin_config_set( 'category_tagi_style', gpc_get_string('category_tagi_style') );
+}
+
+
+// category tagi caption
+
+if (gpc_isset('category_tagi_caption')) {
+	plugin_config_set( 'category_tagi_caption', gpc_get_string('category_tagi_caption') );
 }
 
 
