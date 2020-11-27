@@ -4,8 +4,8 @@
 class MantisBTTagiWorkflowPlugin extends MantisPlugin {
 
   function register() {
-    $this->name        = 'MantisBT Tagi Workflow';
-    $this->description = 'Some tweaks for MantisBT to fit my workflow without modifying core files.';
+    $this->name        = plugin_lang_get('title');
+    $this->description = plugin_lang_get('description');
     $this->page = 'config';
 
     $this->version     = '1.0';

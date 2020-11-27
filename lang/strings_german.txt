@@ -1,10 +1,7 @@
 <?php
 
-$s_plugin_mantisbttagiworkflow_title = 'Mantis Tagi Workflow';
-$s_plugin_mantisbttagiworkflow_description = 'Einstellen, was vom Plugin aktiviert sein soll.';
-
-
 $s_plugin_MantisBTTagiWorkflow_title = 'Mantis Tagi Workflow';
+$s_plugin_MantisBTTagiWorkflow_description = 'Ein paar Änderungen für MantisBT, ohne die Core-Dateien zu verändern.';
 $s_plugin_MantisBTTagiWorkflow_config = 'Konfiguration';
 
 $s_plugin_MantisBTTagiWorkflow_config_enable = 'aktivieren';
