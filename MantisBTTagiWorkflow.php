@@ -39,7 +39,7 @@ class MantisBTTagiWorkflowPlugin extends MantisPlugin {
       'category_tagi_stylize' => 1,
       'projecttitle_stylize' => 1,
       'projecttitle_stylize_regex' => '\d\d\d\d-\d\d',
-      'projecttitle_stylize_style' => 'font-size:.8em;opacity: .75',
+      'projecttitle_stylize_style' => 'margin-right:1em;font-size:.7em;opacity: .5',
     );
   }
 
@@ -51,6 +51,7 @@ class MantisBTTagiWorkflowPlugin extends MantisPlugin {
     $hooks['EVENT_UPDATE_BUG'] = 'redirect_update_bug';
     $hooks['EVENT_FILTER_COLUMNS'] = 'add_columns';
     $hooks['EVENT_LAYOUT_RESOURCES'] = 'add_resources';
+    $hooks['EVENT_LAYOUT_PAGE_FOOTER'] = 'add_resources_footer';
 
     return $hooks;
   }
@@ -120,6 +121,18 @@ class MantisBTTagiWorkflowPlugin extends MantisPlugin {
       $out .= $this->add_columns_css($p_event);
     }
 
+    echo $out;
+  }
+
+  function add_columns_css($p_event)
+  {
+    return "<style>td.column-plugin{text-align:left !important}</style>\n";
+  }
+
+  function add_resources_footer($p_event)
+  {
+    $out = '';
+
     if (
       plugin_config_get( 'projecttitle_stylize' )
     ) {
@@ -129,15 +142,19 @@ class MantisBTTagiWorkflowPlugin extends MantisPlugin {
     echo $out;
   }
 
-  function add_columns_css($p_event)
-  {
-    return '<style>td.column-plugin{text-align:left !important}</style>';
-  }
-
   function add_projecttitle_js($p_event)
   {
-    // WEITER HIER
-    return '';
+    $this->projecttitle_update_js_variables();
+    $out = '<script type="text/javascript" src="' . plugin_file('projecttitle_config.js') . '"></script>' . "\n";
+    $out .= '<script type="text/javascript" src="' . plugin_file('projecttitle.js') . '"></script>' . "\n";
+    return $out;
+  }
+
+  function projecttitle_update_js_variables()
+  {
+    $projecttitle_config = 'var PROJECTTITLE_REGEX = /' . plugin_config_get( 'projecttitle_stylize_regex' ) . '/g;';
+    $projecttitle_config .= 'var PROJECTTITLE_STYLE = "' . plugin_config_get( 'projecttitle_stylize_style' ) . '";';
+    file_put_contents( dirname(__FILE__) . '/files/projecttitle_config.js', $projecttitle_config );
   }
 
 }

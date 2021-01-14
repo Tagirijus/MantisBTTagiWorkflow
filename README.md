@@ -17,6 +17,9 @@ There are some things I changed in an older version of MantisBT to fit my workfl
 9. Table: Enable the column *"Category (Tagi)"* which has the category of the issue, but also a link to the project of the issue in bracktes. If a project is chosen already, this link will lead to "All projects" instead.
 10. Style: Set the caption for the *"Category (tagi)"* table modification (see above).
 11. Style: Enable that the *"Category (tagi)"* will use the variable `$g_category_tagi_stylize` for styling the categories. This variable should exist in the `config_inc.php`. The key of this array variable should be the name of the category and the value should be the styling CSS. See chapter [Example for $g_category_tagi_stylize](#example-for-g_category_tagi_stylize) for an example.
+12. Style: Enable project title styling for the project list on the top right.
+13. Style: The regex of the project title styling to be searched for the styling element to be replaced. E.g. my project titles have the format "YYYY-MM Projecttitle" and I wanted only the year and month to be changed in style.
+14. Style: The styling CSS for the project title styling.
 
 ## Example for $g_category_tagi_stylize
 
