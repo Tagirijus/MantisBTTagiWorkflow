@@ -16,7 +16,7 @@ There are some things I changed in an older version of MantisBT to fit my workfl
 8. Style: Set the caption for the *"Summary with link"* table modification (see above).
 9. Table: Enable the column *"Category (Tagi)"* which has the category of the issue, but also a link to the project of the issue in bracktes. If a project is chosen already, this link will lead to "All projects" instead.
 10. Style: Set the caption for the *"Category (tagi)"* table modification (see above).
-11. Style: Enable that the *"Category (tagi)"* will use the variable `$g_category_tagi_stylize` for styling the categories. This variable should exist in the `config_inc.php`. The key of this array variable should be the name of the category and the value should be the styling CSS. See chapter [Example for $g_category_tagi_stylize](README.md#example-for-g_category_tagi_stylize) for an example.
+11. Style: Enable that the *"Category (tagi)"* will use the variable `$g_category_tagi_stylize` for styling the categories. This variable should exist in the `config_inc.php`. The key of this array variable should be the name of the category and the value should be the styling CSS. See chapter [Example for $g_category_tagi_stylize](#example-for-g_category_tagi_stylize) for an example.
 
 ## Example for $g_category_tagi_stylize
 
