@@ -17,7 +17,7 @@ $s_plugin_MantisBTTagiWorkflow_config_auto_status = 'Nach Report Status automati
 
 
 $s_plugin_MantisBTTagiWorkflow_config_summary_linked = 'Aktiviere die Spalte "Zusammenfassung mit Link", die einen Link zum Bug enthält, der als Text den Zusammenfassungstext hat';
-$s_plugin_MantisBTTagiWorkflow_config_summary_linked_tobugnotes = 'Aktiviere außerdem, dass bei diesem Link sofort zu den Bugnotes geleitet werden soll.';
+$s_plugin_MantisBTTagiWorkflow_config_summary_linked_tobugnotes = 'Aktiviere außerdem, dass beim Link "Zusammenfassung mit Link" sofort zu den Bugnotes geleitet werden soll.';
 $s_plugin_MantisBTTagiWorkflow_summary_linked_title = 'Zusammenfassung (link)';
 $s_plugin_MantisBTTagiWorkflow_config_summary_linked_style = 'Zusammenfassung (link) CSS Style';
 $s_plugin_MantisBTTagiWorkflow_summary_linked_title_entry = 'Bezeichnung für Spalte "Zusammenfassung mit Link". Leer lassen für Default aus der strings-Datei';
@@ -28,4 +28,4 @@ $s_plugin_MantisBTTagiWorkflow_category_tagi_title = 'Kategorie (tagi)';
 $s_plugin_MantisBTTagiWorkflow_config_category_tagi_style = 'Kategorie (tagi) CSS Style für Link';
 $s_plugin_MantisBTTagiWorkflow_category_tagi_all = 'Alle';
 $s_plugin_MantisBTTagiWorkflow_category_tagi_title_entry = 'Bezeichnung für Spalte "Kategorie (tagi)". Leer lassen für Default aus der strings-Datei';
-$s_plugin_MantisBTTagiWorkflow_config_category_tagi_stylize = 'Färbe Kategorie-Name in "Kategorie (tagi)" Spalte mit in der config_inc.php gesetzten Variable $g_category_tagi_stylize';
+$s_plugin_MantisBTTagiWorkflow_config_category_tagi_stylize = 'Färbe Kategorie-Name in "Kategorie (tagi)" Spalte mit in der config_inc.php gesetzten Variable $g_category_tagi_stylize. Für weitere Infos siehe die README.md dieses Plugins.';
