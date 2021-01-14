@@ -29,3 +29,6 @@ $s_plugin_MantisBTTagiWorkflow_config_category_tagi_style = 'Kategorie (tagi) CS
 $s_plugin_MantisBTTagiWorkflow_category_tagi_all = 'Alle';
 $s_plugin_MantisBTTagiWorkflow_category_tagi_title_entry = 'Bezeichnung für Spalte "Kategorie (tagi)". Leer lassen für Default aus der strings-Datei';
 $s_plugin_MantisBTTagiWorkflow_config_category_tagi_stylize = 'Färbe Kategorie-Name in "Kategorie (tagi)" Spalte mit in der config_inc.php gesetzten Variable $g_category_tagi_stylize. Für weitere Infos siehe die README.md dieses Plugins.';
+$s_plugin_MantisBTTagiWorkflow_config_projecttitle_stylize = 'Ändere Style für Projecttitel Liste.';
+$s_plugin_MantisBTTagiWorkflow_config_projecttitle_stylize_regex = 'Projecttitel Liste Regex Capture.';
+$s_plugin_MantisBTTagiWorkflow_config_projecttitle_stylize_style = 'Projecttitel Liste CSS Style.';

@@ -251,6 +251,54 @@ print_manage_menu( 'manage_plugin_page.php' );
 
 
 
+<!-- projecttitle stylize -->
+<tr>
+	<th class="category">
+		<?php echo plugin_lang_get( 'config_projecttitle_stylize' )?>
+	</th>
+	<td class="center exclude_special_fields">
+		<div style="width:98%;margin:0 auto;text-align:left;float:none">
+			<label><input type="checkbox" name="projecttitle_stylize"
+				<?php if( plugin_config_get( 'projecttitle_stylize' ) ) {
+					echo 'checked="checked"';
+				}
+				?>
+				style="margin-bottom:2.1ex;float:left"
+				value="1">&nbsp;<?php echo plugin_lang_get( 'config_enable' ) ?></label>
+		</div>
+	</td>
+</tr>
+
+<!-- projecttitle stylize regex -->
+<tr>
+	<th class="category">
+		<?php echo plugin_lang_get( 'config_projecttitle_stylize_regex' )?>
+	</th>
+	<td class="center exclude_special_fields">
+		<div style="width:98%;margin:0 auto;text-align:left;float:none">
+			<input type="text" name="projecttitle_stylize_regex"
+				style="margin-bottom:2.1ex;float:left"
+				value="<?php echo plugin_config_get( 'projecttitle_stylize_regex' ) ?>">
+		</div>
+	</td>
+</tr>
+
+<!-- projecttitle stylize style -->
+<tr>
+	<th class="category">
+		<?php echo plugin_lang_get( 'config_projecttitle_stylize_style' )?>
+	</th>
+	<td class="center exclude_special_fields">
+		<div style="width:98%;margin:0 auto;text-align:left;float:none">
+			<input type="text" name="projecttitle_stylize_style"
+				style="margin-bottom:2.1ex;float:left"
+				value="<?php echo plugin_config_get( 'projecttitle_stylize_style' ) ?>">
+		</div>
+	</td>
+</tr>
+
+
+
 
 
 </table>

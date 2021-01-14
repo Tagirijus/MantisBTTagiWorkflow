@@ -117,6 +117,30 @@ if (gpc_isset('category_tagi_stylize')) {
 
 
 
+// projecttitle stylize
+
+if (gpc_isset('projecttitle_stylize')) {
+	plugin_config_set( 'projecttitle_stylize', 1 );
+} else {
+	plugin_config_set( 'projecttitle_stylize', 0 );
+}
+
+// projecttitle stylize regex
+
+if (gpc_isset('projecttitle_stylize_regex')) {
+	plugin_config_set( 'projecttitle_stylize_regex', gpc_get_string('projecttitle_stylize_regex') );
+}
+
+// projecttitle stylize style
+
+if (gpc_isset('projecttitle_stylize_style')) {
+	plugin_config_set( 'projecttitle_stylize_style', gpc_get_string('projecttitle_stylize_style') );
+}
+
+
+
+
+
 
 
 

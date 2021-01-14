@@ -8,7 +8,7 @@ class MantisBTTagiWorkflowPlugin extends MantisPlugin {
     $this->description = plugin_lang_get('description');
     $this->page = 'config';
 
-    $this->version     = '1.0.0';
+    $this->version     = '1.1.0';
     $this->requires    = array(
       'MantisCore'       => '2.0.0',
     );
@@ -37,6 +37,9 @@ class MantisBTTagiWorkflowPlugin extends MantisPlugin {
       'category_tagi_style' => 'font-size:.8em;margin:0 3px',
       'category_tagi_caption' => '',
       'category_tagi_stylize' => 1,
+      'projecttitle_stylize' => 1,
+      'projecttitle_stylize_regex' => '\d\d\d\d-\d\d',
+      'projecttitle_stylize_style' => 'font-size:.8em;opacity: .75',
     );
   }
 
@@ -47,7 +50,7 @@ class MantisBTTagiWorkflowPlugin extends MantisPlugin {
     $hooks['EVENT_REPORT_BUG'] = 'report_bug_link';
     $hooks['EVENT_UPDATE_BUG'] = 'redirect_update_bug';
     $hooks['EVENT_FILTER_COLUMNS'] = 'add_columns';
-    $hooks['EVENT_LAYOUT_RESOURCES'] = 'add_columns_css';
+    $hooks['EVENT_LAYOUT_RESOURCES'] = 'add_resources';
 
     return $hooks;
   }
@@ -106,14 +109,35 @@ class MantisBTTagiWorkflowPlugin extends MantisPlugin {
     return $out;
   }
 
-  function add_columns_css($p_event)
+  function add_resources($p_event)
   {
+    $out = '';
+
     if (
       plugin_config_get( 'summary_linked' ) or
       plugin_config_get( 'category_tagi' )
     ) {
-      echo '<style>td.column-plugin{text-align:left !important}</style>';
+      $out .= $this->add_columns_css($p_event);
     }
+
+    if (
+      plugin_config_get( 'projecttitle_stylize' )
+    ) {
+      $out .= $this->add_projecttitle_js($p_event);
+    }
+
+    echo $out;
+  }
+
+  function add_columns_css($p_event)
+  {
+    return '<style>td.column-plugin{text-align:left !important}</style>';
+  }
+
+  function add_projecttitle_js($p_event)
+  {
+    // WEITER HIER
+    return '';
   }
 
 }
