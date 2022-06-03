@@ -28,6 +28,14 @@ There are some things I changed in an older version of MantisBT to fit my workfl
 
 In order for the _bugnote audio player add_ feature to work, this plugin has to be one priority lower than the _MantisBTCoreFormatting_ plugin. This way the formattings don't interfere. I am not sure which one comes first then, but locally this works for me. :D
 
+You also might want to change the Content-Security-Policy headers so that you can embed audio from another server, like so:
+
+```PHP
+$g_custom_headers = [
+    'Content-Security-Policy: default-src \'self\'; media-src https://www.your-domain-here.com'
+];
+```
+
 ## Example for $g_category_tagi_stylize
 
 ```PHP
