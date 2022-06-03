@@ -139,6 +139,28 @@ if (gpc_isset('projecttitle_stylize_style')) {
 
 
 
+// bugnote audio player add
+
+if (gpc_isset('bugnote_audio_player_add')) {
+	plugin_config_set( 'bugnote_audio_player_add', 1 );
+} else {
+	plugin_config_set( 'bugnote_audio_player_add', 0 );
+}
+
+// bugnote audio player add url pattern
+
+if (gpc_isset('bugnote_audio_player_add_url_pattern')) {
+	plugin_config_set( 'bugnote_audio_player_add_url_pattern', gpc_get_string('bugnote_audio_player_add_url_pattern') );
+}
+
+// bugnote audio player add filename patter
+
+if (gpc_isset('bugnote_audio_player_add_filename_pattern')) {
+	plugin_config_set( 'bugnote_audio_player_add_filename_pattern', gpc_get_string('bugnote_audio_player_add_filename_pattern') );
+}
+
+
+
 
 
 

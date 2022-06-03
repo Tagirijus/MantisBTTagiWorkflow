@@ -32,3 +32,6 @@ $s_plugin_MantisBTTagiWorkflow_config_category_tagi_stylize = 'Stylize category 
 $s_plugin_MantisBTTagiWorkflow_config_projecttitle_stylize = 'Change style for projecttitle list.';
 $s_plugin_MantisBTTagiWorkflow_config_projecttitle_stylize_regex = 'Projecttitle list regex capture.';
 $s_plugin_MantisBTTagiWorkflow_config_projecttitle_stylize_style = 'Projecttitle list CSS style.';
+$s_plugin_MantisBTTagiWorkflow_config_bugnote_audio_player_add = 'Add a HTML5 audio player to an audio url in the bug notes.';
+$s_plugin_MantisBTTagiWorkflow_config_bugnote_audio_player_add_url_pattern = 'Regex pattern, which recognizes the url. Should start with the domain only and thus not start or contain "https://" at all!';
+$s_plugin_MantisBTTagiWorkflow_config_bugnote_audio_player_add_filename_pattern = 'Regex Pattern, which recognizes the filename inside the recognized url. Normally this is everythign after the last slash!';

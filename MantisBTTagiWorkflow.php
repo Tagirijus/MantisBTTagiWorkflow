@@ -8,7 +8,7 @@ class MantisBTTagiWorkflowPlugin extends MantisPlugin {
     $this->description = plugin_lang_get('description');
     $this->page = 'config';
 
-    $this->version     = '1.1.0';
+    $this->version     = '1.2.0';
     $this->requires    = array(
       'MantisCore'       => '2.0.0',
     );
@@ -40,6 +40,9 @@ class MantisBTTagiWorkflowPlugin extends MantisPlugin {
       'projecttitle_stylize' => 1,
       'projecttitle_stylize_regex' => '\d\d\d\d-\d\d',
       'projecttitle_stylize_style' => 'margin-right:1em;font-size:.7em;opacity: .5',
+      'bugnote_audio_player_add' => 1,
+      'bugnote_audio_player_add_url_pattern' => '/(domain\.com.*\.[mp3|ogg]+)/',
+      'bugnote_audio_player_add_filename_pattern' => '/[^\/]+$/'
     );
   }
 
@@ -52,8 +55,36 @@ class MantisBTTagiWorkflowPlugin extends MantisPlugin {
     $hooks['EVENT_FILTER_COLUMNS'] = 'add_columns';
     $hooks['EVENT_LAYOUT_RESOURCES'] = 'add_resources';
     $hooks['EVENT_LAYOUT_PAGE_FOOTER'] = 'add_resources_footer';
+    $hooks['EVENT_DISPLAY_FORMATTED'] = 'modify_formatted';
 
     return $hooks;
+  }
+
+  function modify_formatted($p_event, $p_string, $p_multiline = true)
+  {
+    $t_string = $p_string;
+
+    if ( plugin_config_get( 'bugnote_audio_player_add' ) ) {
+      $t_string = $this->bugnote_audio_player_add($t_string);
+    }
+
+    return $t_string;
+  }
+
+  function bugnote_audio_player_add($t_string)
+  {
+    $pattern_url = plugin_config_get( 'bugnote_audio_player_add_url_pattern' );
+    $pattern_filename = plugin_config_get( 'bugnote_audio_player_add_filename_pattern' );
+    $audio_html = '<a href="https://www.%1$s" target="_blank">%2$s</a><br><br><audio src="https://www.%1$s" controls></audio>';
+    return preg_replace_callback($pattern_url, function ($matches) use ($pattern_filename, $audio_html) {
+      $url = $matches[0];
+      $filename = '';
+      preg_match($pattern_filename, $url, $filename_match);
+      if (isset($filename_match[0])) {
+        $filename = $filename_match[0];
+      }
+      return sprintf($audio_html, $url, $filename);
+    }, $t_string);
   }
 
   function modify_menu($p_event, $p_menu) {

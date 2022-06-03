@@ -20,6 +20,13 @@ There are some things I changed in an older version of MantisBT to fit my workfl
 12. Style: Enable project title styling for the project list on the top right.
 13. Style: The regex of the project title styling to be searched for the styling element to be replaced. E.g. my project titles have the format "YYYY-MM Projecttitle" and I wanted only the year and month to be changed in style.
 14. Style: The styling CSS for the project title styling.
+15. Bugnote modification: Enable that inside bugnotes certain links will be replaced with a a-href HTML tag and an audio player straight inside the bugnote.
+16. Bugnote modification: Configure the regex pattern, which will recognize the url. This should not start or contain https://, since this would interfere with the MantisBTCoreFormatting plugin. I coded it the way that you just have to start with the domain straight ahead: like "tagirijus.de", which could lead to something like "/(tagirijus\.de.\*\.[mp3|ogg]+)/" as a regex pattern.
+17. Bugnote modification: Inside the recognized url there is a filename, which will be used for displaying as the a-href text. Normally this name is after the last slash in an url. You could also just use ".\*" maybe to just use the whole url instead (not tested, though).
+
+## Prequesites
+
+In order for the _bugnote audio player add_ feature to work, this plugin has to be one priority lower than the _MantisBTCoreFormatting_ plugin. This way the formattings don't interfere. I am not sure which one comes first then, but locally this works for me. :D
 
 ## Example for $g_category_tagi_stylize
 
