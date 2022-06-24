@@ -141,22 +141,44 @@ if (gpc_isset('projecttitle_stylize_style')) {
 
 // bugnote audio player add
 
-if (gpc_isset('bugnote_audio_player_add')) {
-	plugin_config_set( 'bugnote_audio_player_add', 1 );
+if (gpc_isset('bugnote_audio')) {
+	plugin_config_set( 'bugnote_audio', 1 );
 } else {
-	plugin_config_set( 'bugnote_audio_player_add', 0 );
+	plugin_config_set( 'bugnote_audio', 0 );
 }
 
 // bugnote audio player add url pattern
 
-if (gpc_isset('bugnote_audio_player_add_url_pattern')) {
-	plugin_config_set( 'bugnote_audio_player_add_url_pattern', gpc_get_string('bugnote_audio_player_add_url_pattern') );
+if (gpc_isset('bugnote_audio_url_pattern')) {
+	plugin_config_set( 'bugnote_audio_url_pattern', gpc_get_string('bugnote_audio_url_pattern') );
 }
 
 // bugnote audio player add filename patter
 
-if (gpc_isset('bugnote_audio_player_add_filename_pattern')) {
-	plugin_config_set( 'bugnote_audio_player_add_filename_pattern', gpc_get_string('bugnote_audio_player_add_filename_pattern') );
+if (gpc_isset('bugnote_audio_file_pattern')) {
+	plugin_config_set( 'bugnote_audio_file_pattern', gpc_get_string('bugnote_audio_file_pattern') );
+}
+
+
+
+// bugnote video player add
+
+if (gpc_isset('bugnote_video')) {
+	plugin_config_set( 'bugnote_video', 1 );
+} else {
+	plugin_config_set( 'bugnote_video', 0 );
+}
+
+// bugnote video player add url pattern
+
+if (gpc_isset('bugnote_video_url_pattern')) {
+	plugin_config_set( 'bugnote_video_url_pattern', gpc_get_string('bugnote_video_url_pattern') );
+}
+
+// bugnote video player add filename patter
+
+if (gpc_isset('bugnote_video_file_pattern')) {
+	plugin_config_set( 'bugnote_video_file_pattern', gpc_get_string('bugnote_video_file_pattern') );
 }
 
 

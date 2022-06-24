@@ -302,12 +302,12 @@ print_manage_menu( 'manage_plugin_page.php' );
 <!-- bugnote audio player -->
 <tr>
 	<th class="category">
-		<?php echo plugin_lang_get( 'config_bugnote_audio_player_add' )?>
+		<?php echo plugin_lang_get( 'config_bugnote_audio' )?>
 	</th>
 	<td class="center exclude_special_fields">
 		<div style="width:98%;margin:0 auto;text-align:left;float:none">
-			<label><input type="checkbox" name="bugnote_audio_player_add"
-				<?php if( plugin_config_get( 'bugnote_audio_player_add' ) ) {
+			<label><input type="checkbox" name="bugnote_audio"
+				<?php if( plugin_config_get( 'bugnote_audio' ) ) {
 					echo 'checked="checked"';
 				}
 				?>
@@ -320,13 +320,13 @@ print_manage_menu( 'manage_plugin_page.php' );
 <!-- bugnote audio player url pattern -->
 <tr>
 	<th class="category">
-		<?php echo plugin_lang_get( 'config_bugnote_audio_player_add_url_pattern' )?>
+		<?php echo plugin_lang_get( 'config_bugnote_audio_url_pattern' )?>
 	</th>
 	<td class="center exclude_special_fields">
 		<div style="width:98%;margin:0 auto;text-align:left;float:none">
-			<input type="text" name="bugnote_audio_player_add_url_pattern"
+			<input type="text" name="bugnote_audio_url_pattern"
 				style="margin-bottom:2.1ex;float:left"
-				value="<?php echo plugin_config_get( 'bugnote_audio_player_add_url_pattern' ) ?>">
+				value="<?php echo plugin_config_get( 'bugnote_audio_url_pattern' ) ?>">
 		</div>
 	</td>
 </tr>
@@ -334,13 +334,61 @@ print_manage_menu( 'manage_plugin_page.php' );
 <!-- bugnote audio player filename pattern -->
 <tr>
 	<th class="category">
-		<?php echo plugin_lang_get( 'config_bugnote_audio_player_add_filename_pattern' )?>
+		<?php echo plugin_lang_get( 'config_bugnote_audio_file_pattern' )?>
 	</th>
 	<td class="center exclude_special_fields">
 		<div style="width:98%;margin:0 auto;text-align:left;float:none">
-			<input type="text" name="bugnote_audio_player_add_filename_pattern"
+			<input type="text" name="bugnote_audio_file_pattern"
 				style="margin-bottom:2.1ex;float:left"
-				value="<?php echo plugin_config_get( 'bugnote_audio_player_add_filename_pattern' ) ?>">
+				value="<?php echo plugin_config_get( 'bugnote_audio_file_pattern' ) ?>">
+		</div>
+	</td>
+</tr>
+
+
+
+<!-- bugnote video player -->
+<tr>
+	<th class="category">
+		<?php echo plugin_lang_get( 'config_bugnote_video' )?>
+	</th>
+	<td class="center exclude_special_fields">
+		<div style="width:98%;margin:0 auto;text-align:left;float:none">
+			<label><input type="checkbox" name="bugnote_video"
+				<?php if( plugin_config_get( 'bugnote_video' ) ) {
+					echo 'checked="checked"';
+				}
+				?>
+				style="margin-bottom:2.1ex;float:left"
+				value="1">&nbsp;<?php echo plugin_lang_get( 'config_enable' ) ?></label>
+		</div>
+	</td>
+</tr>
+
+<!-- bugnote video player url pattern -->
+<tr>
+	<th class="category">
+		<?php echo plugin_lang_get( 'config_bugnote_video_url_pattern' )?>
+	</th>
+	<td class="center exclude_special_fields">
+		<div style="width:98%;margin:0 auto;text-align:left;float:none">
+			<input type="text" name="bugnote_video_url_pattern"
+				style="margin-bottom:2.1ex;float:left"
+				value="<?php echo plugin_config_get( 'bugnote_video_url_pattern' ) ?>">
+		</div>
+	</td>
+</tr>
+
+<!-- bugnote video player filename pattern -->
+<tr>
+	<th class="category">
+		<?php echo plugin_lang_get( 'config_bugnote_video_file_pattern' )?>
+	</th>
+	<td class="center exclude_special_fields">
+		<div style="width:98%;margin:0 auto;text-align:left;float:none">
+			<input type="text" name="bugnote_video_file_pattern"
+				style="margin-bottom:2.1ex;float:left"
+				value="<?php echo plugin_config_get( 'bugnote_video_file_pattern' ) ?>">
 		</div>
 	</td>
 </tr>

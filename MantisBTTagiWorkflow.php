@@ -40,9 +40,12 @@ class MantisBTTagiWorkflowPlugin extends MantisPlugin {
       'projecttitle_stylize' => 1,
       'projecttitle_stylize_regex' => '\d\d\d\d-\d\d',
       'projecttitle_stylize_style' => 'margin-right:1em;font-size:.7em;opacity: .5',
-      'bugnote_audio_player_add' => 1,
-      'bugnote_audio_player_add_url_pattern' => '/(domain\.com.*\.[mp3|ogg]+)/',
-      'bugnote_audio_player_add_filename_pattern' => '/[^\/]+$/'
+      'bugnote_audio' => 1,
+      'bugnote_audio_url_pattern' => '/(domain\.com.*\.(mp3|ogg)+)/',
+      'bugnote_audio_file_pattern' => '/[^\/]+$/',
+      'bugnote_video' => 1,
+      'bugnote_video_url_pattern' => '/(domain\.com.*\.(mp4)+)/',
+      'bugnote_video_file_pattern' => '/[^\/]+$/'
     );
   }
 
@@ -64,8 +67,12 @@ class MantisBTTagiWorkflowPlugin extends MantisPlugin {
   {
     $t_string = $p_string;
 
-    if ( plugin_config_get( 'bugnote_audio_player_add' ) ) {
+    if ( plugin_config_get( 'bugnote_audio' ) ) {
       $t_string = $this->bugnote_audio_player_add($t_string);
+    }
+
+    if ( plugin_config_get( 'bugnote_video' ) ) {
+      $t_string = $this->bugnote_video_player_add($t_string);
     }
 
     return $t_string;
@@ -73,8 +80,8 @@ class MantisBTTagiWorkflowPlugin extends MantisPlugin {
 
   function bugnote_audio_player_add($t_string)
   {
-    $pattern_url = plugin_config_get( 'bugnote_audio_player_add_url_pattern' );
-    $pattern_filename = plugin_config_get( 'bugnote_audio_player_add_filename_pattern' );
+    $pattern_url = plugin_config_get( 'bugnote_audio_url_pattern' );
+    $pattern_filename = plugin_config_get( 'bugnote_audio_file_pattern' );
     $audio_html = '<a href="https://www.%1$s" target="_blank">%2$s</a><br><br><audio src="https://www.%1$s" controls></audio>';
     return preg_replace_callback($pattern_url, function ($matches) use ($pattern_filename, $audio_html) {
       $url = $matches[0];
@@ -84,6 +91,22 @@ class MantisBTTagiWorkflowPlugin extends MantisPlugin {
         $filename = $filename_match[0];
       }
       return sprintf($audio_html, $url, $filename);
+    }, $t_string);
+  }
+
+  function bugnote_video_player_add($t_string)
+  {
+    $pattern_url = plugin_config_get( 'bugnote_video_url_pattern' );
+    $pattern_filename = plugin_config_get( 'bugnote_video_file_pattern' );
+    $video_html = '<a href="https://www.%1$s" target="_blank">%2$s</a><br><br><video src="https://www.%1$s" controls></video>';
+    return preg_replace_callback($pattern_url, function ($matches) use ($pattern_filename, $video_html) {
+      $url = $matches[0];
+      $filename = '';
+      preg_match($pattern_filename, $url, $filename_match);
+      if (isset($filename_match[0])) {
+        $filename = $filename_match[0];
+      }
+      return sprintf($video_html, $url, $filename);
     }, $t_string);
   }
 

@@ -2,6 +2,13 @@
 
 The following changelog is based on this: [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and tries to stick to the [semantic versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2022-06-24
+### Added
+- Bugnote add video - feature added like the audio one, but for videos.
+
+### Changed
+- Bugnote add player feature now uses different config table _config\_ids_, since the old ones were too long and gave errors on changing the settings of the MantisBTTagiWorkflow plugin.
+
 ## [1.2.0] - 2022-06-03
 ### Added
 - Bugnote add player - feature added. This one can replace an url with a a-href HTML tag and an audio player at the same time.
