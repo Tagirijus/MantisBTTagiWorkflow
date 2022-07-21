@@ -143,6 +143,36 @@ class MantisBTTagiWorkflowPlugin extends MantisPlugin {
   function redirect_update_bug($p_event)
   {
     if ( plugin_config_get( 'redirect_update_bug' ) ) {
+
+      GLOBAL $t_resolve_issue;
+      GLOBAL $f_bug_id;
+      GLOBAL $t_close_issue;
+      GLOBAL $t_reopen_issue;
+      GLOBAL $t_existing_bug;
+      GLOBAL $t_updated_bug;
+
+      // default stuff, which normally happens in the bug_update.php
+      if( $t_resolve_issue ) {
+        email_resolved( $f_bug_id );
+        email_relationship_child_resolved( $f_bug_id );
+      } else if( $t_close_issue ) {
+        email_close( $f_bug_id );
+        email_relationship_child_closed( $f_bug_id );
+      } else if( $t_reopen_issue ) {
+        email_bug_reopened( $f_bug_id );
+      } else if( $t_existing_bug->handler_id != $t_updated_bug->handler_id ) {
+        email_owner_changed( $f_bug_id, $t_existing_bug->handler_id, $t_updated_bug->handler_id );
+      } else if( $t_existing_bug->status != $t_updated_bug->status ) {
+        $t_new_status_label = MantisEnum::getLabel( config_get( 'status_enum_string' ), $t_updated_bug->status );
+        $t_new_status_label = str_replace( ' ', '_', $t_new_status_label );
+        email_bug_status_changed( $f_bug_id, $t_new_status_label );
+      } else {
+        email_bug_updated( $f_bug_id );
+      }
+
+      form_security_purge( 'bug_update' );
+
+      // my actual redirect
       print_successful_redirect('view_all_bug_page.php');
     }
   }
